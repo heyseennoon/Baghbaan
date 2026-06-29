@@ -15,6 +15,8 @@ import {
   Tooltip, ResponsiveContainer, Legend
 } from "recharts";
 
+import { AdminDatabase } from "./DatabaseAdmin";
+
 /* ── Brand tokens ──────────────────────────────────────────────────── */
 const C = {
   forest: "#1D5C3F",
@@ -1019,6 +1021,7 @@ function AdminSettings() {
 /* ── Sidebar nav config ─────────────────────────────────────────────── */
 const NAV = [
   { id: "overview",  label: "Dashboard",      icon: <LayoutDashboard className="w-4 h-4" /> },
+  { id: "database",  label: "Database Models",  icon: <Leaf className="w-4 h-4" /> },
   { id: "products",  label: "Products",        icon: <Package className="w-4 h-4" /> },
   { id: "orders",    label: "Orders",           icon: <ShoppingBag className="w-4 h-4" />, badge: 9 },
   { id: "customers", label: "Customers",        icon: <Users className="w-4 h-4" /> },
@@ -1030,12 +1033,13 @@ const NAV = [
 
 /* ── Root AdminDashboard ─────────────────────────────────────────────── */
 export default function AdminDashboard() {
-  const [active, setActive] = useState("overview");
+  const [active, setActive] = useState("database");
   const [sideOpen, setSideOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
 
   const currentPage = {
     overview:  <Overview />,
+    database:  <AdminDatabase />,
     products:  <AdminProducts />,
     orders:    <AdminOrders />,
     customers: <AdminCustomers />,
