@@ -10,11 +10,6 @@ import Checkout from "./pages/Checkout";
 import UserDashboard from "./pages/UserDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 
-function AdminRoute() {
-  const isAdmin = false;
-  return isAdmin ? <AdminDashboard /> : <Home />;
-}
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -28,7 +23,10 @@ export const router = createBrowserRouter([
       { path: "cart", Component: Cart },
       { path: "checkout", Component: Checkout },
       { path: "user-dashboard", Component: UserDashboard },
-      { path: "admin-dashboard", Component: AdminRoute },
     ],
+  },
+  {
+    path: "/admin",
+    Component: AdminDashboard,
   },
 ]);

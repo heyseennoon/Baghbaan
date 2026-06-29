@@ -50,25 +50,39 @@ function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #FAF6F2 0%, #F4D6D8 40%, #FAF6F2 100%)" }}
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#232323]"
     >
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <img
+          src="https://images.unsplash.com/photo-1646614565293-64028d70f6e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxQaW5rJTIwYW5kJTIwV2hpdGUlMjBMaWxpZXMlMjBib3VxdWV0fGVufDF8fHx8MTc4MjY5NTU0MXww&ixlib=rb-4.1.0&q=80&w=1080"
+          alt="Pink and white lilies background"
+          className="w-full h-full object-cover"
+          style={{ 
+            transform: `scale(1.1) translateY(${parallaxY * 0.2}px)`,
+            transition: 'transform 0.1s ease-out'
+          }} 
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#FAF6F2] opacity-90" />
+      </div>
+
+      <div className="absolute inset-0 pointer-events-none z-10 opacity-30">
         <BotanicalVines />
         <FloatingPetals />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full py-28 lg:py-0 lg:min-h-screen lg:flex lg:items-center">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-center w-full">
-          <div ref={titleRef} className="flex flex-col gap-7">
+      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 w-full py-28 lg:py-0 lg:min-h-screen lg:flex lg:items-center">
+        <div className="grid lg:grid-cols-12 gap-12 items-center w-full">
+          <div ref={titleRef} className="flex flex-col gap-7 lg:col-span-8 xl:col-span-7">
             <div
               className="flex items-center gap-2.5 transition-all duration-700"
               style={{ opacity: titleVisible ? 1 : 0, transform: titleVisible ? "translateY(0)" : "translateY(20px)" }}
             >
-              <div className="w-6 h-px bg-[#8B5E3C]" />
+              <div className="w-6 h-px bg-[#F4D6D8]" />
               <span
-                className="text-xs uppercase tracking-[0.2em] text-[#8B5E3C]"
-                style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 500 }}
+                className="text-xs uppercase tracking-[0.2em] text-[#F4D6D8]"
+                style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 600 }}
               >
                 Botanical Boutique
               </span>
@@ -80,7 +94,7 @@ function Hero() {
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 600,
                 fontSize: "clamp(3.5rem, 8vw, 7rem)",
-                color: "#232323",
+                color: "#FFFFFF",
                 letterSpacing: "-0.02em",
                 opacity: titleVisible ? 1 : 0,
                 transform: titleVisible ? "translateY(0)" : "translateY(24px)",
@@ -96,7 +110,7 @@ function Hero() {
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 400,
                 fontSize: "clamp(1.25rem, 2.8vw, 1.9rem)",
-                color: "#6F4E37",
+                color: "#F4D6D8",
                 fontStyle: "italic",
                 opacity: titleVisible ? 1 : 0,
                 transform: titleVisible ? "translateY(0)" : "translateY(20px)",
@@ -107,7 +121,7 @@ function Hero() {
             </h2>
 
             <p
-              className="text-sm lg:text-base leading-relaxed text-[#232323]/65 max-w-md transition-all duration-700"
+              className="text-sm lg:text-base leading-relaxed text-[#FAF6F2]/80 max-w-md transition-all duration-700"
               style={{
                 fontFamily: "'Manrope', sans-serif",
                 fontWeight: 300,
@@ -121,7 +135,7 @@ function Hero() {
             </p>
 
             <div
-              className="flex flex-wrap gap-3 transition-all duration-700"
+              className="flex flex-wrap gap-4 transition-all duration-700"
               style={{
                 opacity: titleVisible ? 1 : 0,
                 transform: titleVisible ? "translateY(0)" : "translateY(16px)",
@@ -130,23 +144,23 @@ function Hero() {
             >
               <Link
                 to="/products"
-                className="px-7 py-3 rounded-full text-sm font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-xl inline-block"
+                className="px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl inline-flex items-center justify-center"
                 style={{
                   fontFamily: "'Manrope', sans-serif",
-                  background: "#6F4E37",
-                  color: "#FAF6F2",
-                  boxShadow: "0 6px 28px rgba(111,78,55,0.3)",
+                  background: "#FAF6F2",
+                  color: "#232323",
+                  boxShadow: "0 6px 28px rgba(0,0,0,0.3)",
                 }}
               >
                 Explore Collection
               </Link>
               <Link
                 to="/custom-design"
-                className="px-7 py-3 rounded-full text-sm font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:bg-[#6F4E37]/8 inline-block"
+                className="px-8 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:bg-white/10 inline-flex items-center justify-center backdrop-blur-md"
                 style={{
                   fontFamily: "'Manrope', sans-serif",
-                  color: "#6F4E37",
-                  border: "1.5px solid rgba(111,78,55,0.35)",
+                  color: "#FAF6F2",
+                  border: "1.5px solid rgba(250,246,242,0.5)",
                 }}
               >
                 Custom Design
@@ -154,7 +168,7 @@ function Hero() {
             </div>
 
             <div
-              className="mt-3 h-px w-28 bg-gradient-to-r from-[#8B5E3C]/35 via-[#D8A7B1]/55 to-transparent transition-all duration-1000"
+              className="mt-4 h-px w-28 bg-gradient-to-r from-[#F4D6D8]/60 via-[#F4D6D8]/30 to-transparent transition-all duration-1000"
               style={{
                 opacity: titleVisible ? 1 : 0,
                 transform: titleVisible ? "scaleX(1)" : "scaleX(0.45)",
@@ -164,47 +178,49 @@ function Hero() {
             />
           </div>
 
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="absolute -inset-8 pointer-events-none" style={{ opacity: 0.05 }}>
-              <svg viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                <circle cx="300" cy="350" r="280" stroke="#6F4E37" strokeWidth="1" strokeDasharray="4 8" />
-                <circle cx="300" cy="350" r="220" stroke="#7A8450" strokeWidth="0.7" strokeDasharray="2 6" />
-                <path d="M300 70 C340 120, 360 160, 350 200 C340 240, 310 260, 300 310" stroke="#6F4E37" strokeWidth="1.2" />
-                <ellipse cx="350" cy="195" rx="30" ry="16" transform="rotate(20 350 195)" stroke="#7A8450" strokeWidth="1" />
-                <ellipse cx="255" cy="230" rx="24" ry="13" transform="rotate(-25 255 230)" stroke="#7A8450" strokeWidth="1" />
-              </svg>
+          <div className="lg:col-span-4 hidden lg:flex flex-col gap-6 justify-end items-end h-full mt-32">
+            <div 
+              className="p-5 flex items-center gap-4 transition-all duration-700" 
+              style={{ 
+                borderRadius: "24px", 
+                background: "rgba(35,35,35,0.4)", 
+                backdropFilter: "blur(24px)", 
+                border: "1px solid rgba(250,246,242,0.15)", 
+                boxShadow: "0 12px 40px rgba(0,0,0,0.3)",
+                opacity: titleVisible ? 1 : 0,
+                transform: titleVisible ? "translateY(0)" : "translateY(24px)",
+                transitionDelay: "600ms",
+              }}
+            >
+              <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(244,214,216,0.15)" }}>
+                <BlossomIcon className="w-6 h-6 text-[#F4D6D8]" />
+              </div>
+              <div>
+                <p className="text-[11px] text-[#F4D6D8] leading-none mb-1.5 uppercase" style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 600, letterSpacing: "0.1em" }}>Curated Weekly</p>
+                <p className="text-[15px] text-[#FAF6F2] font-semibold leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Fresh from the Garden</p>
+              </div>
             </div>
-
-            <div className="relative w-full max-w-sm lg:max-w-none lg:w-[90%] xl:w-[80%]" style={{ transform: `translateY(${-parallaxY}px)` }}>
-              <div className="relative overflow-hidden" style={{ borderRadius: "28px", boxShadow: "0 30px 80px rgba(111,78,55,0.18), 0 8px 24px rgba(111,78,55,0.1)", aspectRatio: "3/4" }}>
-                <img
-                  src="https://images.unsplash.com/photo-1679047775134-c238f8ba9916?w=900&h=1080&fit=crop&auto=format&q=88"
-                  alt="White and pink lilies arranged together against a soft cream background"
-                  className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out hover:scale-[1.035]"
-                  style={{ background: "#F4D6D8" }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#232323]/18 via-transparent to-white/10 pointer-events-none" />
-              </div>
-
-              <div className="absolute -bottom-6 -left-6 lg:-left-10 p-4 lg:p-5 flex items-center gap-3" style={{ borderRadius: "20px", background: "rgba(250,246,242,0.78)", backdropFilter: "blur(20px)", border: "1px solid rgba(111,78,55,0.16)", boxShadow: "0 8px 32px rgba(111,78,55,0.12)", minWidth: "200px" }}>
-                <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(216,167,177,0.3)" }}>
-                  <BlossomIcon className="w-5 h-5 text-[#6F4E37]" />
-                </div>
-                <div>
-                  <p className="text-xs text-[#8B5E3C] leading-none mb-1" style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 500, letterSpacing: "0.05em" }}>CURATED WEEKLY</p>
-                  <p className="text-sm text-[#232323] font-medium leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Fresh from the Garden</p>
-                </div>
-              </div>
-
-              <div className="absolute -top-4 -right-4 lg:-right-6 w-16 h-16 lg:w-20 lg:h-20 flex flex-col items-center justify-center" style={{ borderRadius: "50%", background: "rgba(244,214,216,0.7)", backdropFilter: "blur(12px)", border: "1px solid rgba(216,167,177,0.4)", boxShadow: "0 4px 20px rgba(216,167,177,0.25)" }}>
-                <span className="text-[8px] uppercase tracking-[0.12em] text-[#6F4E37] text-center leading-tight" style={{ fontFamily: "'Manrope', sans-serif" }}>Pure<br />Nature</span>
-              </div>
+            
+            <div 
+              className="w-24 h-24 flex flex-col items-center justify-center transition-all duration-700" 
+              style={{ 
+                borderRadius: "50%", 
+                background: "rgba(244,214,216,0.15)", 
+                backdropFilter: "blur(16px)", 
+                border: "1px solid rgba(244,214,216,0.3)", 
+                boxShadow: "0 8px 30px rgba(0,0,0,0.2)",
+                opacity: titleVisible ? 1 : 0,
+                transform: titleVisible ? "translateY(0)" : "translateY(24px)",
+                transitionDelay: "800ms",
+              }}
+            >
+              <span className="text-[10px] uppercase tracking-[0.15em] text-[#FAF6F2] text-center leading-relaxed font-semibold" style={{ fontFamily: "'Manrope', sans-serif" }}>Pure<br />Nature</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute bottom-0 left-0 right-0 z-20">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full">
           <path d="M0 50 C360 10, 1080 70, 1440 40 L1440 80 L0 80 Z" fill="#FAF6F2" />
         </svg>
@@ -246,7 +262,7 @@ function BloomCard({ bloom, index }: { bloom: typeof blooms[0]; index: number })
     <Link
       to={`/product/${bloom.id}`}
       ref={ref}
-      className="group cursor-pointer transition-all duration-700 block"
+      className="group flex flex-col cursor-pointer transition-all duration-700 h-full bg-white/40 p-3 rounded-[24px] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(111,78,55,0.08)] border border-[#6F4E37]/5"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(32px)",
@@ -254,25 +270,25 @@ function BloomCard({ bloom, index }: { bloom: typeof blooms[0]; index: number })
       }}
     >
       <div
-        className="overflow-hidden mb-5"
+        className="overflow-hidden mb-5 shrink-0"
         style={{
-          borderRadius: "20px",
+          borderRadius: "16px",
           aspectRatio: "4/5",
-          boxShadow: "0 8px 40px rgba(111,78,55,0.1)",
+          boxShadow: "0 4px 20px rgba(111,78,55,0.06)",
         }}
       >
         <img
           src={bloom.img}
           alt={bloom.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          style={{ background: "#F4D6D8", transitionDuration: "800ms" }}
+          style={{ background: "#F4D6D8" }}
         />
       </div>
-      <div className="px-1">
-        <div className="flex items-start justify-between mb-1.5">
+      <div className="px-2 pb-2 flex flex-col flex-1">
+        <div className="flex items-start justify-between mb-2">
           <h3
             className="text-lg text-[#232323]"
-            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}
+            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600 }}
           >
             {bloom.name}
           </h3>
@@ -280,20 +296,21 @@ function BloomCard({ bloom, index }: { bloom: typeof blooms[0]; index: number })
             className="text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mt-0.5"
             style={{
               fontFamily: "'Manrope', sans-serif",
-              background: "rgba(216,167,177,0.25)",
+              background: "rgba(216,167,177,0.15)",
               color: "#6F4E37",
-              border: "1px solid rgba(216,167,177,0.4)",
+              border: "1px solid rgba(216,167,177,0.3)",
+              fontWeight: 600,
             }}
           >
             {bloom.tag}
           </span>
         </div>
-        <p className="text-xs text-[#8B5E3C]/80 mb-0.5"
+        <p className="text-sm text-[#8B5E3C] mb-1 font-medium"
           style={{ fontFamily: "'Manrope', sans-serif" }}>
           {bloom.origin}
         </p>
-        <p className="text-xs text-[#232323]/55 italic"
-          style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.95rem" }}>
+        <p className="text-sm text-[#232323]/60 italic mt-auto pt-2 border-t border-[#6F4E37]/10"
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}>
           {bloom.scent}
         </p>
       </div>
@@ -317,7 +334,7 @@ function PillarCard({
   return (
     <div
       ref={ref}
-      className="text-center flex flex-col items-center gap-4 transition-all duration-700"
+      className="text-center flex flex-col items-center gap-5 transition-all duration-700 p-6 rounded-3xl hover:bg-white/40 border border-transparent hover:border-[#6F4E37]/5 hover:shadow-sm"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(20px)",
@@ -325,20 +342,20 @@ function PillarCard({
       }}
     >
       <div
-        className="w-12 h-12 rounded-full flex items-center justify-center text-[#6F4E37]"
-        style={{ background: "rgba(250,246,242,0.7)", border: "1px solid rgba(111,78,55,0.15)" }}
+        className="w-14 h-14 rounded-full flex items-center justify-center text-[#6F4E37] mb-2"
+        style={{ background: "rgba(250,246,242,0.9)", border: "1px solid rgba(111,78,55,0.12)", boxShadow: "0 4px 12px rgba(111,78,55,0.05)" }}
       >
         {icon}
       </div>
       <h3
-        className="text-lg text-[#232323]"
-        style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}
+        className="text-xl text-[#232323]"
+        style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600 }}
       >
         {title}
       </h3>
       <p
-        className="text-sm leading-relaxed text-[#232323]/60 max-w-xs"
-        style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 300 }}
+        className="text-[15px] leading-relaxed text-[#232323]/70 max-w-xs"
+        style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 400 }}
       >
         {body}
       </p>
@@ -372,8 +389,9 @@ function FeaturedBlooms() {
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 600,
-                fontSize: "clamp(2rem, 4vw, 3.2rem)",
+                fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)",
                 color: "#232323",
+                letterSpacing: "-0.01em",
               }}
             >
               Featured Blooms
@@ -414,11 +432,11 @@ function Philosophy() {
         >
           <LeafIcon className="w-10 h-10 text-[#6F4E37] mx-auto mb-8 opacity-70" />
           <h2
-            className="mb-6 leading-tight"
+            className="mb-8 leading-tight"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
-              fontSize: "clamp(2rem, 4.5vw, 3.8rem)",
+              fontSize: "clamp(2.5rem, 5vw, 4rem)",
               color: "#232323",
               fontStyle: "italic",
             }}
@@ -459,27 +477,27 @@ function GardenStrip() {
 
   const { ref, visible } = useReveal();
   return (
-    <section className="py-16 px-6 lg:px-10 overflow-hidden" style={{ background: "#FAF6F2" }}>
+    <section className="py-24 lg:py-32 px-6 lg:px-10 overflow-hidden" style={{ background: "#FAF6F2" }}>
       <div
         ref={ref}
-        className="flex gap-4 lg:gap-6 overflow-x-auto pb-4 transition-all duration-700 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex gap-4 lg:gap-6 overflow-x-auto pb-4 transition-all duration-700 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-w-[100vw]"
         style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(-24px)", WebkitOverflowScrolling: "touch" }}
       >
         {imgs.map((img, i) => (
           <div
             key={i}
-            className="shrink-0 overflow-hidden group cursor-pointer"
+            className="shrink-0 overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(111,78,55,0.15)]"
             style={{
-              borderRadius: "18px",
-              width: "clamp(160px, 22vw, 280px)",
-              height: "clamp(200px, 28vw, 360px)",
-              boxShadow: "0 6px 28px rgba(111,78,55,0.1)",
+              borderRadius: "24px",
+              width: "clamp(180px, 25vw, 320px)",
+              height: "clamp(240px, 32vw, 420px)",
+              boxShadow: "0 8px 30px rgba(111,78,55,0.08)",
             }}
           >
             <img
               src={img.src}
               alt={img.alt}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
               style={{ background: "#F4D6D8" }}
             />
           </div>
@@ -501,34 +519,34 @@ function TestimonialCard({ testimonial, index }: { testimonial: typeof testimoni
   return (
     <div
       ref={ref}
-      className="p-7 flex flex-col gap-5 transition-all duration-700 hover:-translate-y-1 hover:shadow-xl"
+      className="p-8 flex flex-col gap-6 transition-all duration-700 hover:-translate-y-1 h-full"
       style={{
         borderRadius: "24px",
         background: "rgba(250,246,242,0.9)",
-        border: "1px solid rgba(111,78,55,0.13)",
-        boxShadow: "0 4px 24px rgba(111,78,55,0.07)",
+        border: "1px solid rgba(111,78,55,0.08)",
+        boxShadow: "0 10px 40px rgba(111,78,55,0.04)",
         transitionDelay: `${index * 120}ms`,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(20px)",
       }}
     >
-      <div className="flex gap-1">
+      <div className="flex gap-1.5">
         {[...Array(5)].map((_, s) => (
           <span key={s} className="text-[#D8A7B1] text-sm">★</span>
         ))}
       </div>
       <p
-        className="text-[#232323]/75 leading-relaxed flex-1 italic"
-        style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem" }}
+        className="text-[#232323]/80 leading-relaxed flex-1 italic"
+        style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem" }}
       >
         "{testimonial.quote}"
       </p>
-      <div className="border-t border-[#6F4E37]/10 pt-4">
-        <p className="text-sm font-medium text-[#232323]"
+      <div className="border-t border-[#6F4E37]/10 pt-5 mt-auto">
+        <p className="text-[15px] font-medium text-[#232323]"
           style={{ fontFamily: "'Manrope', sans-serif" }}>
           {testimonial.name}
         </p>
-        <p className="text-xs text-[#8B5E3C]/70 mt-0.5"
+        <p className="text-[13px] text-[#8B5E3C]/80 mt-1"
           style={{ fontFamily: "'Manrope', sans-serif" }}>
           {testimonial.role}
         </p>
@@ -555,12 +573,12 @@ function Testimonials() {
             </span>
             <div className="w-6 h-px bg-[#8B5E3C]" />
           </div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: "clamp(1.8rem,3.5vw,2.8rem)", color: "#232323" }}>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 600, fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", color: "#232323", letterSpacing: "-0.01em" }}>
             What Our Garden Inspires
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={testimonial.name} testimonial={testimonial} index={index} />
           ))}
@@ -592,12 +610,13 @@ function Newsletter() {
       >
         <BlossomIcon className="w-10 h-10 text-[#F4D6D8] mx-auto mb-8 opacity-60" />
         <h2
-          className="mb-4 leading-tight"
+          className="mb-5 leading-tight"
           style={{
             fontFamily: "'Playfair Display', serif",
             fontWeight: 600,
-            fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+            fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)",
             color: "#FAF6F2",
+            letterSpacing: "-0.01em",
           }}
         >
           Receive the Garden Letter
@@ -621,12 +640,12 @@ function Newsletter() {
             }}
           />
           <button
-            className="px-7 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300 hover:scale-105 shrink-0"
+            className="px-8 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl shrink-0 inline-flex items-center justify-center"
             style={{
               fontFamily: "'Manrope', sans-serif",
               background: "#FAF6F2",
               color: "#6F4E37",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
+              boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
             }}
           >
             Subscribe

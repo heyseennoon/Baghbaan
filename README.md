@@ -1,7 +1,7 @@
 
-  # Design luxury floral landing page
+  # BNB
 
-  This is a code bundle for Design luxury floral landing page. The original project is available at https://www.figma.com/design/hTovhcEQdGYZVjzHEqcliB/Design-luxury-floral-landing-page.
+  This is a code bundle for BNB. The original project is available at https://www.figma.com/design/hTovhcEQdGYZVjzHEqcliB/BNB.
 
   ## Running the code
 
